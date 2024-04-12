@@ -6,7 +6,7 @@ console.log("1/ Implémentez une fonction qui transforme un texte en camelCase."
  * @returns {string} - text transform in camelcase
  */
 function strCamelCase(a) {
-    let b = a.normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^A-Za-z0-9]/g);
+    let b = a.normalize('NFD').split(/[^A-Za-z0-9]/g);
     b.forEach(function (c, d) {
         b[d] = c.charAt(0).toUpperCase() + c.substr(1).toLowerCase();
     });
