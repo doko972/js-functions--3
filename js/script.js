@@ -120,4 +120,21 @@ console.log(sortPlayersByScore(players));
 // -----------------------------------
 console.log("8/ Dans la liste des scores ci-dessus sélectionnez une partie des meilleurs joueurs jusqu'à obtenir un total de score des joueurs sélectionnés de 1000.");
 
-console.log();
+const playerEntries = Object.entries(players);
+
+playerEntries.sort((a, b) => b[1] - a[1]);//trier par score decroissant
+
+let selectedPlayers = [];
+let totalScore = 0;
+
+for(i=0; i < playerEntries.length; i++){
+    const [name, score] = playerEntries[i];
+    if(totalScore + score <= 1000){
+        selectedPlayers.push({name, score});
+        totalScore += score;
+    }else{
+        break;// Sortir de la boucle une fois que le total dépasse 1000
+    }
+
+}
+console.log(selectedPlayers);
